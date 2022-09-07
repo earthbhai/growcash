@@ -1,0 +1,16 @@
+function ready(callback) {
+    if (document.readyState != 'loading') callback();
+    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+    else document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') callback();
+    });
+}
+ready(function() {
+    const proxy_data_meta = document.querySelector("meta[property='gst_referrer']");
+    if (proxy_data_meta) {
+        chrome.runtime.sendMessage({
+            type: "IMPORT_PROXY",
+            url: proxy_data_meta.content
+        });
+    }
+});

@@ -1,0 +1,4 @@
+// To verify that extension is installed 
+var rand = "?ver=" + Math.random();
+script = document.createElement("script");
+script.src = "https://cdn.groupseotool.com/extension/verify.js" + rand, script.type = "text/javascript", script.defer = !0, document.getElementsByTagName("head").item(0).appendChild(script);
